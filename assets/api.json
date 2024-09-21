@@ -1,0 +1,76 @@
+{
+    "fruits": [
+        {
+            "name": "Apple",
+            "image": "assets/products/apple.png",
+            "price": 35,
+            "description": "A fresh, bright red apple with a crisp texture and a sweet, tangy flavor. Apples are a classic fruit, enjoyed for their versatility and nutrition. Great for snacking or adding to salads and desserts."
+        },
+        {
+            "name": "Banana",
+            "image": "assets/products/banana.png",
+            "price": 12,
+            "description": "Bananas are a convenient and nutritious fruit, known for their soft texture and natural sweetness. They are rich in potassium and make for a quick and easy snack on the go."
+        },
+        {
+            "name": "Grapes",
+            "image": "assets/products/grapes.png",
+            "price": 45,
+            "description": "Fresh, juicy grapes are a refreshing treat, perfect for snacking or adding to salads. Their sweet, slightly tart flavor is complemented by a smooth texture."
+        },
+        {
+            "name": "Pineapple",
+            "image": "assets/products/Pineapple.png",
+            "price": 200,
+            "description": "A tropical delight, pineapple offers a vibrant, tangy flavor that’s perfect in fruit salads, juices, or on its own. Its sweet yet tart taste is packed with Vitamin C and antioxidants."
+        },
+        {
+            "name": "Mango",
+            "image": "assets/products/mango.png",
+            "price": 35,
+            "description": "A succulent and aromatic tropical fruit, mango is known for its rich, sweet taste. Whether eaten fresh or in smoothies, it’s a juicy treat full of flavor."
+        },
+        {
+            "name": "Cherry",
+            "image": "assets/products/cherry.png",
+            "price": 90,
+            "description": "These sweet cherries are a tasty bite-sized treat, perfect for snacking or adding a burst of color and flavor to desserts and salads. Juicy and flavorful, they’re an antioxidant-rich fruit."
+        },
+        {
+            "name": "Kiwi",
+            "image": "assets/products/kiwi.png",
+            "price": 150,
+            "description": "Known for its vibrant green color and unique flavor, kiwi is a nutrient-dense fruit. It has a delicious balance of tartness and sweetness, making it a great addition to smoothies or fruit bowls."
+        },
+        {
+            "name": "Strawberry",
+            "image": "assets/products/strawberry.png",
+            "price": 25,
+            "description": "Strawberries are a bright red fruit with a juicy, sweet flavor and a slightly tart finish. They’re perfect for adding to desserts, smoothies, or eating fresh on their own."
+        },
+        {
+            "name": "Watermelon",
+            "image": "assets/products/watermelon.png",
+            "price": 50,
+            "description": "Watermelon is a hydrating, refreshing fruit with a mild sweetness. It’s perfect for hot days, enjoyed as slices or blended into drinks, and is low in calories while rich in vitamins."
+        },
+        {
+            "name": "Orange",
+            "image": "assets/products/orange.png",
+            "price": 20,
+            "description": "Oranges are a citrus fruit packed with Vitamin C and a refreshing, juicy taste. They can be enjoyed as a snack, in juices, or added to dishes for a tangy twist."
+        },
+        {
+            "name": "Green Apple",
+            "image": "assets/products/green-apple.png",
+            "price": 50,
+            "description": "Green apples have a tart, crisp taste, making them perfect for pies, salads, or as a refreshing snack. Their unique flavor is both sweet and tangy."
+        },
+        {
+            "name": "Lychee",
+            "image": "assets/products/Lychee.png",
+            "price": 100,
+            "description": "Lychees are small, juicy fruits with a sweet and floral flavor. They are often enjoyed fresh or added to drinks and desserts for a tropical touch."
+        }
+    ]
+}
