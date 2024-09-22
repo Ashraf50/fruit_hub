@@ -6,6 +6,18 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ProfileViewBody();
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth < 600) {
+          return const ProfileViewBody(
+            horizontal: 16,
+          );
+        } else {
+          return ProfileViewBody(
+            horizontal: MediaQuery.sizeOf(context).width * .2,
+          );
+        }
+      },
+    );
   }
 }

@@ -6,6 +6,16 @@ class SignUpView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SignUpViewBody();
+    return LayoutBuilder(builder: (context, constraints) {
+      if (constraints.maxWidth < 600) {
+        return const SignUpViewBody(
+          horizontal: 20,
+        );
+      } else {
+        return SignUpViewBody(
+          horizontal: MediaQuery.sizeOf(context).width * .2,
+        );
+      }
+    });
   }
 }

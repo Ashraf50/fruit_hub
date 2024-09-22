@@ -16,7 +16,13 @@ class _SplashViewState extends State<SplashView1> {
     super.initState();
     Future.delayed(const Duration(seconds: 4), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => const SplashView2(),
+        builder: (context) => LayoutBuilder(builder: (context, constraints) {
+      if (constraints.maxWidth < 600) {
+        return const SplashView2(horizontal: 20,);
+      } else {
+        return  SplashView2(horizontal: MediaQuery.sizeOf(context).width * .2,);
+      }
+    })
       ));
     });
   }

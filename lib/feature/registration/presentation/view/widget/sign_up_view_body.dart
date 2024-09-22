@@ -14,7 +14,8 @@ import 'package:get/get.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class SignUpViewBody extends StatefulWidget {
-  const SignUpViewBody({super.key});
+  final double horizontal;
+  const SignUpViewBody({super.key, required this.horizontal});
 
   @override
   State<SignUpViewBody> createState() => _SignUpViewBodyState();
@@ -51,7 +52,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
           child: CustomScaffold(
             appBar: const CustomAppBar(title: "New Account"),
             body: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: widget.horizontal),
               child: Form(
                 key: formKey,
                 child: ListView(
@@ -105,7 +106,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                     const SizedBox(height: 20),
                     CustomButton(
                       title: "create new account",
-                      textColor:  Colors.white,
+                      textColor: Colors.white,
                       buttonColor: AppColors.buttonColor,
                       width: double.infinity,
                       onTap: () {

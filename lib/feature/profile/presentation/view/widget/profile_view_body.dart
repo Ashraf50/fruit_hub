@@ -15,14 +15,15 @@ import 'package:fruit_hub/feature/registration/presentation/view/sign_in_view.da
 import 'package:get/get.dart';
 
 class ProfileViewBody extends StatelessWidget {
-  const ProfileViewBody({super.key});
+  final double horizontal;
+  const ProfileViewBody({super.key, required this.horizontal});
 
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
       appBar: const CustomAppBar(title: "My Profile"),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: EdgeInsets.symmetric(horizontal: horizontal),
         child: ListView(
           children: [
             const HeaderContent(),
@@ -40,7 +41,9 @@ class ProfileViewBody extends StatelessWidget {
               title: "Profile",
               image: "assets/img/profile.svg",
               onTap: () {
-                Get.to(() => const PersonalInformationView());
+                Get.to(() => const PersonalInformationView(
+                      horizontal: 20,
+                    ));
               },
             ),
             CustomListTile(
@@ -81,7 +84,7 @@ class ProfileViewBody extends StatelessWidget {
               height: 22,
             ),
             const Text(
-              "General",
+              "Help",
               style: AppStyles.textStyle20,
             ),
             const SizedBox(

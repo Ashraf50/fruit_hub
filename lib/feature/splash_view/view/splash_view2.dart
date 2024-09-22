@@ -7,13 +7,14 @@ import 'package:fruit_hub/feature/registration/presentation/view/sign_in_view.da
 import 'package:get/get.dart';
 
 class SplashView2 extends StatelessWidget {
-  const SplashView2({super.key});
+  final double horizontal;
+  const SplashView2({super.key, required this.horizontal});
 
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: EdgeInsets.symmetric(horizontal: horizontal),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -51,7 +52,7 @@ class SplashView2 extends StatelessWidget {
             ),
             CustomButton(
               title: "start now",
-              textColor:  Colors.white,
+              textColor: Colors.white,
               buttonColor: AppColors.buttonColor,
               width: double.infinity,
               onTap: () {

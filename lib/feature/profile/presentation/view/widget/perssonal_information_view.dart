@@ -13,7 +13,8 @@ import 'package:fruit_hub/feature/registration/presentation/view_model/auth_bloc
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class PersonalInformationView extends StatefulWidget {
-  const PersonalInformationView({super.key});
+  final double horizontal;
+  const PersonalInformationView({super.key, required this.horizontal});
 
   @override
   State<PersonalInformationView> createState() =>
@@ -49,7 +50,7 @@ class _PersonalInformationViewState extends State<PersonalInformationView> {
           child: CustomScaffold(
             appBar: const CustomAppBar(title: "Profile"),
             body: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: widget.horizontal),
               child: Form(
                 key: formKey,
                 child: ListView(

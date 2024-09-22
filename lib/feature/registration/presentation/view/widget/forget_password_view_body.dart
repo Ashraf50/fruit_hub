@@ -13,7 +13,8 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import '../sign_in_view.dart';
 
 class ForgetPasswordViewBody extends StatefulWidget {
-  const ForgetPasswordViewBody({super.key});
+  final double horizontal;
+  const ForgetPasswordViewBody({super.key, required this.horizontal});
 
   @override
   State<ForgetPasswordViewBody> createState() => _ForgetPasswordViewBodyState();
@@ -46,7 +47,7 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
           child: CustomScaffold(
             appBar: const CustomAppBar(title: "Forget Password"),
             body: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: widget.horizontal),
               child: ListView(
                 children: [
                   const SizedBox(height: 24),
@@ -69,7 +70,7 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
                   ),
                   CustomButton(
                     title: "forget password",
-                    textColor:  Colors.white,
+                    textColor: Colors.white,
                     onTap: () {
                       BlocProvider.of<AuthBloc>(context).add(
                         ResetEvent(email: emailController.text),

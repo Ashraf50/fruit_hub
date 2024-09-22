@@ -18,7 +18,8 @@ import 'package:get/get.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class SignInViewBody extends StatefulWidget {
-  const SignInViewBody({super.key});
+  final double horizontal;
+  const SignInViewBody({super.key, required this.horizontal});
 
   @override
   State<SignInViewBody> createState() => _SignInViewBodyState();
@@ -60,7 +61,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
           child: CustomScaffold(
             appBar: const CustomAppBar(title: "Sign In"),
             body: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: widget.horizontal),
               child: Form(
                 key: formKey,
                 child: ListView(

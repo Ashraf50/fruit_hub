@@ -6,6 +6,16 @@ class ForgetPasswordView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ForgetPasswordViewBody();
+    return LayoutBuilder(builder: (context, constraints) {
+      if (constraints.maxWidth < 600) {
+        return const ForgetPasswordViewBody(
+          horizontal: 20,
+        );
+      } else {
+        return ForgetPasswordViewBody(
+          horizontal: MediaQuery.sizeOf(context).width * .2,
+        );
+      }
+    });
   }
 }

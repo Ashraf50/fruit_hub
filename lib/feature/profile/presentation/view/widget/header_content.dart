@@ -29,6 +29,7 @@ class HeaderContent extends StatelessWidget {
                 Map<String, dynamic> data =
                     snapshot.data!.data() as Map<String, dynamic>;
                 return Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Stack(
                       clipBehavior: Clip.none,
@@ -96,7 +97,7 @@ class HeaderContent extends StatelessWidget {
                   ],
                 );
               } else {
-                return const ProfileHeaderLoading(pictureRadius: 50,);
+                return const ProfileHeaderLoading(pictureRadius: 50);
               }
             });
       },
