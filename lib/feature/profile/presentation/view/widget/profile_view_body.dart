@@ -41,9 +41,17 @@ class ProfileViewBody extends StatelessWidget {
               title: "Profile",
               image: "assets/img/profile.svg",
               onTap: () {
-                Get.to(() => const PersonalInformationView(
-                      horizontal: 20,
-                    ));
+                Get.to(() => LayoutBuilder(builder: (context, constraints) {
+                      if (constraints.maxWidth < 600) {
+                        return const PersonalInformationView(
+                          horizontal: 20,
+                        );
+                      } else {
+                        return PersonalInformationView(
+                          horizontal: MediaQuery.sizeOf(context).width * .2,
+                        );
+                      }
+                    }));
               },
             ),
             CustomListTile(
