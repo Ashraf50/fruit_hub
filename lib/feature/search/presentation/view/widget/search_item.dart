@@ -28,7 +28,7 @@ class SearchItem extends StatelessWidget {
             width: 70,
             height: 70,
             margin: const EdgeInsets.only(right: 5),
-            child: Expanded(child: Image.asset(product.image)),
+            child: Image.asset(product.image),
           ),
           Expanded(
             child: Text(

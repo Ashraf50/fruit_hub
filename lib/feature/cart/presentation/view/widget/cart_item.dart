@@ -27,10 +27,8 @@ class CartItem extends StatelessWidget {
                   decoration: const BoxDecoration(
                     color: Color(0xffF3F5F7),
                   ),
-                  child: Expanded(
-                    child: Image.asset(
-                      fruit.image,
-                    ),
+                  child: Image.asset(
+                    fruit.image,
                   ),
                 ),
                 const SizedBox(

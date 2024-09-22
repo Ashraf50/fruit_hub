@@ -55,27 +55,25 @@ class _SearchViewState extends State<SearchView> {
                   const SizedBox(
                     height: 10,
                   ),
-                  Expanded(
-                    child: ListView.builder(
-                      physics: const BouncingScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: filteredProducts.length,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.only(bottom: 5),
-                          child: InkWell(
-                            borderRadius: BorderRadius.circular(10),
-                            onTap: () {
-                              Get.to(() => DetailsViewBody(
-                                  fruits: filteredProducts[index]));
-                            },
-                            child: SearchItem(
-                              product: filteredProducts[index],
-                            ),
+                  ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: filteredProducts.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 5),
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(10),
+                          onTap: () {
+                            Get.to(() => DetailsViewBody(
+                                fruits: filteredProducts[index]));
+                          },
+                          child: SearchItem(
+                            product: filteredProducts[index],
                           ),
-                        );
-                      },
-                    ),
+                        ),
+                      );
+                    },
                   ),
                   const SizedBox(
                     height: 20,
