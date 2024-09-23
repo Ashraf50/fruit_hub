@@ -20,8 +20,8 @@ This approach enhances performance and makes the app scalable for future growth.
 <div>
 <img src="https://github.com/user-attachments/assets/649b2202-04bc-4c4d-9d9c-4bfc9472c59e">
 <img src="https://github.com/user-attachments/assets/9a1fa6a3-9668-4000-9eb0-b4ccf34c7cdf">
-<img src="https://drive.google.com/file/d/1gkLndBzJLD4l5qYU0Smag74_g29eimMo/view?usp=drivesdk">
-<img src="https://drive.google.com/file/d/1IqqwBmW9oUaQzPexUgiq3MTty7qPTDjG/view?usp=drivesdk">
+<img src="https://github.com/user-attachments/assets/57d59912-92af-4093-a242-d6312bc9eeac">
+<img src="https://github.com/user-attachments/assets/d1c44b59-e650-4c5c-8062-6f6bb86a4d84">
 </div>
 
 
