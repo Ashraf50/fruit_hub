@@ -19,8 +19,8 @@ This approach enhances performance and makes the app scalable for future growth.
 <div>
 <img src="https://github.com/user-attachments/assets/649b2202-04bc-4c4d-9d9c-4bfc9472c59e">
 <img src="https://github.com/user-attachments/assets/9a1fa6a3-9668-4000-9eb0-b4ccf34c7cdf">
-<img src="https://www.mediafire.com/file/r57wspbfoi22ulo/fruits_hub_review.mp4/file">
-<img src="https://drive.google.com/file/d/1IqqwBmW9oUaQzPexUgiq3MTty7qPTDjG/view?usp=drive_link">
+<img src="https://drive.google.com/file/d/1gkLndBzJLD4l5qYU0Smag74_g29eimMo/view?usp=drivesdk">
+<img src="https://drive.google.com/file/d/1IqqwBmW9oUaQzPexUgiq3MTty7qPTDjG/view?usp=drivesdk">
 </div>
 
 
