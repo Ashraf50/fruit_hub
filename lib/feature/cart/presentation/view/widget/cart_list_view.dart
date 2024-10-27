@@ -6,6 +6,8 @@ import 'package:fruit_hub/feature/favorite/presentation/view/widget/fav_product_
 import 'package:fruit_hub/feature/home/presentation/view/widget/details_view_body.dart';
 import 'package:get/get.dart';
 import '../../view_model/cubit/cart_state.dart';
+import 'package:get/get_navigation/src/routes/transitions_type.dart'
+    as get_transition;
 
 class CartListView extends StatelessWidget {
   const CartListView({super.key});
@@ -28,8 +30,11 @@ class CartListView extends StatelessWidget {
                 highlightColor: Colors.transparent,
                 splashColor: Colors.transparent,
                 onTap: () {
-                  Get.to(() =>
-                      DetailsViewBody(fruits: cubit.selectedProduct[index]));
+                  Get.to(
+                    () => DetailsViewBody(fruits: cubit.selectedProduct[index]),
+                    transition: get_transition.Transition.downToUp,
+                    duration: const Duration(milliseconds: 500),
+                  );
                 },
                 child: CartItem(
                   fruit: cubit.selectedProduct[index],

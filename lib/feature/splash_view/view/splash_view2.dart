@@ -56,7 +56,11 @@ class SplashView2 extends StatelessWidget {
               buttonColor: AppColors.buttonColor,
               width: double.infinity,
               onTap: () {
-                Get.to(() => const SignInView());
+                Get.to(
+                  () => const SignInView(),
+                  transition: Transition.rightToLeftWithFade,
+                  duration: const Duration(milliseconds: 500),
+                );
               },
             )
           ],

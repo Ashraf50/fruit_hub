@@ -8,6 +8,8 @@ import 'package:fruit_hub/feature/search/presentation/view/widget/search_item.da
 import 'package:fruit_hub/feature/search/presentation/view/widget/search_text_fielld.dart';
 import 'package:fruit_hub/feature/search/presentation/view_model/cubit/search_cubit.dart';
 import 'package:get/get.dart';
+import 'package:get/get_navigation/src/routes/transitions_type.dart'
+    as get_transition;
 
 class SearchView extends StatefulWidget {
   final List<FruitModel> product;
@@ -65,8 +67,12 @@ class _SearchViewState extends State<SearchView> {
                         child: InkWell(
                           borderRadius: BorderRadius.circular(10),
                           onTap: () {
-                            Get.to(() => DetailsViewBody(
-                                fruits: filteredProducts[index]));
+                            Get.to(
+                              () => DetailsViewBody(
+                                  fruits: filteredProducts[index]),
+                              transition: get_transition.Transition.zoom,
+                              duration: const Duration(milliseconds: 500),
+                            );
                           },
                           child: SearchItem(
                             product: filteredProducts[index],

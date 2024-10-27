@@ -7,6 +7,8 @@ import 'package:fruit_hub/feature/profile/data/cubit/profile_image_cubit.dart';
 import 'package:fruit_hub/feature/profile/presentation/view/widget/camera_button.dart';
 import 'package:fruit_hub/feature/profile/presentation/view/widget/shimmer_loading.dart';
 import 'package:get/get.dart';
+import 'package:get/get_navigation/src/routes/transitions_type.dart'
+    as get_transition;
 
 class HeaderContent extends StatelessWidget {
   const HeaderContent({super.key});
@@ -44,10 +46,16 @@ class HeaderContent extends StatelessWidget {
                                     ),
                                   )
                                 : InkWell(
+                                    borderRadius: BorderRadius.circular(50),
                                     onTap: () {
                                       Get.to(
-                                        () =>
-                                            PhotoViewer(image: data["imgLink"]),
+                                        () => PhotoViewer(
+                                          image: data["imgLink"],
+                                        ),
+                                        transition: get_transition
+                                            .Transition.circularReveal,
+                                        duration:
+                                            const Duration(milliseconds: 500),
                                       );
                                     },
                                     child: CircleAvatar(

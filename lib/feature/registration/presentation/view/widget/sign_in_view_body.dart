@@ -16,6 +16,8 @@ import 'package:fruit_hub/feature/registration/presentation/view/widget/check_ac
 import 'package:fruit_hub/feature/registration/presentation/view_model/auth_bloc/auth_bloc.dart';
 import 'package:get/get.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:get/get_navigation/src/routes/transitions_type.dart'
+    as get_transition;
 
 class SignInViewBody extends StatefulWidget {
   final double horizontal;
@@ -112,7 +114,11 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                       children: [
                         TextButton(
                           onPressed: () {
-                            Get.to(() => const ForgetPasswordView());
+                            Get.to(
+                              () => const ForgetPasswordView(),
+                              transition: get_transition.Transition.rightToLeft,
+                              duration: const Duration(milliseconds: 500),
+                            );
                           },
                           child: const Text(
                             "forget Password?",
@@ -145,7 +151,11 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                       title: "don't have an account?",
                       buttonTitle: "crete account",
                       onPressed: () {
-                        Get.to(() => const SignUpView());
+                        Get.to(
+                          () => const SignUpView(),
+                          transition: get_transition.Transition.rightToLeft,
+                          duration: const Duration(milliseconds: 500),
+                        );
                       },
                     ),
                     const Row(

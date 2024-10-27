@@ -11,6 +11,8 @@ import 'package:fruit_hub/feature/registration/presentation/view_model/auth_bloc
 import 'package:get/get.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import '../sign_in_view.dart';
+import 'package:get/get_navigation/src/routes/transitions_type.dart'
+    as get_transition;
 
 class ForgetPasswordViewBody extends StatefulWidget {
   final double horizontal;
@@ -84,7 +86,11 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
                     title: "Remember password?",
                     buttonTitle: "sign in",
                     onPressed: () {
-                      Get.to(() => const SignInView());
+                      Get.to(
+                        () => const SignInView(),
+                        transition: get_transition.Transition.leftToRight,
+                        duration: const Duration(milliseconds: 500),
+                      );
                     },
                   ),
                 ],

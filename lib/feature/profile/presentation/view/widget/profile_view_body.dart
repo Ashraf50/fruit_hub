@@ -41,24 +41,32 @@ class ProfileViewBody extends StatelessWidget {
               title: "Profile",
               image: "assets/img/profile.svg",
               onTap: () {
-                Get.to(() => LayoutBuilder(builder: (context, constraints) {
-                      if (constraints.maxWidth < 600) {
-                        return const PersonalInformationView(
-                          horizontal: 20,
-                        );
-                      } else {
-                        return PersonalInformationView(
-                          horizontal: MediaQuery.sizeOf(context).width * .2,
-                        );
-                      }
-                    }));
+                Get.to(
+                  () => LayoutBuilder(builder: (context, constraints) {
+                    if (constraints.maxWidth < 600) {
+                      return const PersonalInformationView(
+                        horizontal: 20,
+                      );
+                    } else {
+                      return PersonalInformationView(
+                        horizontal: MediaQuery.sizeOf(context).width * .2,
+                      );
+                    }
+                  }),
+                  transition: Transition.rightToLeft,
+                  duration: const Duration(milliseconds: 500),
+                );
               },
             ),
             CustomListTile(
               title: "Orders",
               image: "assets/img/order.svg",
               onTap: () {
-                Get.to(() => const CartView());
+                Get.to(
+                  () => const CartView(),
+                  transition: Transition.rightToLeft,
+                  duration: const Duration(milliseconds: 500),
+                );
               },
             ),
             CustomListTile(
@@ -70,7 +78,11 @@ class ProfileViewBody extends StatelessWidget {
               title: "Favorite",
               image: "assets/img/favorite.svg",
               onTap: () {
-                Get.to(() => const FavoriteView());
+                Get.to(
+                  () => const FavoriteView(),
+                  transition: Transition.rightToLeft,
+                  duration: const Duration(milliseconds: 500),
+                );
               },
             ),
             CustomListTile(
@@ -102,7 +114,11 @@ class ProfileViewBody extends StatelessWidget {
               title: "Who we are",
               image: "assets/img/info-circle.svg",
               onTap: () {
-                Get.to(() => const HowAreYouView());
+                Get.to(
+                  () => const HowAreYouView(),
+                  transition: Transition.rightToLeft,
+                  duration: const Duration(milliseconds: 500),
+                );
               },
             ),
             const SizedBox(

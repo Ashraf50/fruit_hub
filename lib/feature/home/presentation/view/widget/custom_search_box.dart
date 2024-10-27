@@ -5,6 +5,8 @@ import 'package:fruit_hub/core/constant/text_style.dart';
 import 'package:fruit_hub/feature/home/presentation/view_model/cubit/fetch_products_cubit.dart';
 import 'package:fruit_hub/feature/search/presentation/view/search_view.dart';
 import 'package:get/get.dart';
+import 'package:get/get_navigation/src/routes/transitions_type.dart'
+    as get_transition;
 
 class CustomSearchBox extends StatelessWidget {
   const CustomSearchBox({super.key});
@@ -26,6 +28,8 @@ class CustomSearchBox extends StatelessWidget {
               );
             },
           ),
+          transition: get_transition.Transition.rightToLeft,
+          duration: const Duration(milliseconds: 500),
         );
       },
       borderRadius: BorderRadius.circular(12),

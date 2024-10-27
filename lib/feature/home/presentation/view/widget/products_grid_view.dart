@@ -6,6 +6,8 @@ import 'package:fruit_hub/feature/home/presentation/view/widget/details_view_bod
 import 'package:fruit_hub/feature/home/presentation/view/widget/product_item.dart';
 import 'package:fruit_hub/feature/home/presentation/view_model/cubit/fetch_products_cubit.dart';
 import 'package:get/get.dart';
+import 'package:get/get_navigation/src/routes/transitions_type.dart'
+    as get_transition;
 
 class ProductsGridView extends StatelessWidget {
   const ProductsGridView({super.key});
@@ -32,7 +34,10 @@ class ProductsGridView extends StatelessWidget {
                     splashColor: Colors.transparent,
                     onTap: () {
                       Get.to(
-                          () => DetailsViewBody(fruits: state.fruits[index]));
+                        () => DetailsViewBody(fruits: state.fruits[index]),
+                        transition: get_transition.Transition.downToUp,
+                        duration: const Duration(milliseconds: 500),
+                      );
                     },
                     borderRadius: BorderRadius.circular(12),
                     child: ProductItem(fruits: state.fruits[index]));
