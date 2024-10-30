@@ -6,6 +6,7 @@ import 'package:fruit_hub/core/constant/text_style.dart';
 import 'package:fruit_hub/feature/profile/data/cubit/profile_image_cubit.dart';
 import 'package:fruit_hub/feature/profile/presentation/view/profile_view.dart';
 import 'package:fruit_hub/feature/profile/presentation/view/widget/shimmer_loading.dart';
+import 'package:fruit_hub/generated/l10n.dart';
 import 'package:get/get.dart';
 
 class HomeAppBar extends StatelessWidget {
@@ -55,8 +56,8 @@ class HomeAppBar extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
-                            "welcome!...",
+                          Text(
+                            S.of(context).welcome_home,
                             style: AppStyles.textStyle18,
                           ),
                           Text(

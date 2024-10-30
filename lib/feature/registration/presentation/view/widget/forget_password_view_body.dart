@@ -8,6 +8,7 @@ import 'package:fruit_hub/core/widget/custom_text_field.dart';
 import 'package:fruit_hub/core/widget/snack_bar.dart';
 import 'package:fruit_hub/feature/registration/presentation/view/widget/check_account.dart';
 import 'package:fruit_hub/feature/registration/presentation/view_model/auth_bloc/auth_bloc.dart';
+import 'package:fruit_hub/generated/l10n.dart';
 import 'package:get/get.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import '../sign_in_view.dart';
@@ -47,15 +48,15 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
           ),
           inAsyncCall: isLoading,
           child: CustomScaffold(
-            appBar: const CustomAppBar(title: "Forget Password"),
+            appBar: CustomAppBar(title: S.of(context).forget_pass),
             body: Padding(
               padding: EdgeInsets.symmetric(horizontal: widget.horizontal),
               child: ListView(
                 children: [
                   const SizedBox(height: 24),
-                  const Text(
-                    "Don't worry, just enter your email and we will send you the verification link.",
-                    style: TextStyle(
+                  Text(
+                    S.of(context).don_worry,
+                    style: const TextStyle(
                       fontSize: 18,
                     ),
                   ),
@@ -63,7 +64,7 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
                     height: 30,
                   ),
                   CustomTextfield(
-                    hintText: "your email",
+                    hintText: S.of(context).your_email,
                     obscureText: false,
                     controller: emailController,
                   ),
@@ -71,7 +72,7 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
                     height: 20,
                   ),
                   CustomButton(
-                    title: "forget password",
+                    title: S.of(context).forget_pass,
                     textColor: Colors.white,
                     onTap: () {
                       BlocProvider.of<AuthBloc>(context).add(
@@ -83,8 +84,8 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
                   ),
                   const SizedBox(height: 20),
                   CheckAccount(
-                    title: "Remember password?",
-                    buttonTitle: "sign in",
+                    title: S.of(context).remember_password,
+                    buttonTitle: S.of(context).sign_in,
                     onPressed: () {
                       Get.to(
                         () => const SignInView(),

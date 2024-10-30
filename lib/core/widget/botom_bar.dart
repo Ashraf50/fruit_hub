@@ -5,6 +5,7 @@ import 'package:fruit_hub/feature/cart/presentation/view/cart_view.dart';
 import 'package:fruit_hub/feature/home/presentation/view/home_view.dart';
 import 'package:fruit_hub/feature/favorite/presentation/view/favorite_view.dart';
 import 'package:fruit_hub/feature/profile/presentation/view/profile_view.dart';
+import 'package:fruit_hub/generated/l10n.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class BottomBar extends StatefulWidget {
@@ -38,22 +39,22 @@ class _BottomBarState extends State<BottomBar> {
         items: [
           SalomonBottomBarItem(
             icon: SvgPicture.asset("assets/img/home.svg", height: 25),
-            title: const Text("Home"),
+            title: Text(S.of(context).home),
             selectedColor: AppColors.buttonColor,
           ),
           SalomonBottomBarItem(
             icon: SvgPicture.asset("assets/img/favorite.svg", height: 25),
-            title: const Text("Favorite"),
+            title: Text(S.of(context).Favorite),
             selectedColor: AppColors.buttonColor,
           ),
           SalomonBottomBarItem(
             icon: SvgPicture.asset("assets/img/cart.svg", height: 25),
-            title: const Text("Cart"),
+            title: Text(S.of(context).cart),
             selectedColor: AppColors.buttonColor,
           ),
           SalomonBottomBarItem(
             icon: SvgPicture.asset("assets/img/profile.svg", height: 25),
-            title: const Text("Profile"),
+            title: Text(S.of(context).profile),
             selectedColor: AppColors.buttonColor,
           ),
         ],

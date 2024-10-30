@@ -10,6 +10,7 @@ import 'package:fruit_hub/core/widget/snack_bar.dart';
 import 'package:fruit_hub/feature/registration/presentation/view/sign_in_view.dart';
 import 'package:fruit_hub/feature/registration/presentation/view/widget/check_account.dart';
 import 'package:fruit_hub/feature/registration/presentation/view_model/auth_bloc/auth_bloc.dart';
+import 'package:fruit_hub/generated/l10n.dart';
 import 'package:get/get.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart'
@@ -52,7 +53,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
             valueColor: AlwaysStoppedAnimation<Color>(AppColors.buttonColor),
           ),
           child: CustomScaffold(
-            appBar: const CustomAppBar(title: "New Account"),
+            appBar: CustomAppBar(title: S.of(context).new_account),
             body: Padding(
               padding: EdgeInsets.symmetric(horizontal: widget.horizontal),
               child: Form(
@@ -61,17 +62,17 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                   children: [
                     const SizedBox(height: 24),
                     CustomTextfield(
-                      hintText: "your name",
+                      hintText: S.of(context).your_name,
                       obscureText: false,
                       controller: nameController,
                     ),
                     CustomTextfield(
                       validator: (value) {
                         return value != null && !EmailValidator.validate(value)
-                            ? "Enter a valid email"
+                            ? S.of(context).valid_email
                             : null;
                       },
-                      hintText: "your email",
+                      hintText: S.of(context).your_email,
                       obscureText: false,
                       controller: emailController,
                       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -79,13 +80,13 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                     CustomTextfield(
                       validator: (value) {
                         if (value!.length < 6) {
-                          return "Your password is too short!";
+                          return S.of(context).short_password;
                         } else {
                           return null;
                         }
                       },
                       autovalidateMode: AutovalidateMode.onUserInteraction,
-                      hintText: "your password",
+                      hintText: S.of(context).your_Password,
                       obscureText: visibility,
                       controller: passwordController,
                       suffixIcon: IconButton(
@@ -107,7 +108,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                     ),
                     const SizedBox(height: 20),
                     CustomButton(
-                      title: "create new account",
+                      title: S.of(context).create_new_account,
                       textColor: Colors.white,
                       buttonColor: AppColors.buttonColor,
                       width: double.infinity,
@@ -127,8 +128,8 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                     ),
                     const SizedBox(height: 30),
                     CheckAccount(
-                      title: "already have an account?",
-                      buttonTitle: "sign in",
+                      title: S.of(context).already_have_account,
+                      buttonTitle: S.of(context).sign_in,
                       onPressed: () {
                         Get.to(
                           () => const SignInView(),

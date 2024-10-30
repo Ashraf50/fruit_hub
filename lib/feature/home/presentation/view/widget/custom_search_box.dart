@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:fruit_hub/core/constant/text_style.dart';
 import 'package:fruit_hub/feature/home/presentation/view_model/cubit/fetch_products_cubit.dart';
 import 'package:fruit_hub/feature/search/presentation/view/search_view.dart';
+import 'package:fruit_hub/generated/l10n.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart'
     as get_transition;
@@ -55,8 +56,8 @@ class CustomSearchBox extends StatelessWidget {
               const SizedBox(
                 width: 12,
               ),
-              const Text(
-                "search for...",
+              Text(
+                S.of(context).search_for,
                 style: AppStyles.textStyle18,
               )
             ],

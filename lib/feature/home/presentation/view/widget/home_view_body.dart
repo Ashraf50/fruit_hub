@@ -4,6 +4,7 @@ import 'package:fruit_hub/core/widget/custom_scaffold.dart';
 import 'package:fruit_hub/feature/home/presentation/view/widget/custom_search_box.dart';
 import 'package:fruit_hub/feature/home/presentation/view/widget/home_app_bar.dart';
 import 'package:fruit_hub/feature/home/presentation/view/widget/products_grid_view.dart';
+import 'package:fruit_hub/generated/l10n.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -14,27 +15,27 @@ class HomeViewBody extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: ListView(
-          children: const [
-            SizedBox(
+          children:  [
+            const SizedBox(
               height: 15,
             ),
-            HomeAppBar(),
-            SizedBox(
+            const HomeAppBar(),
+            const SizedBox(
               height: 16,
             ),
-            CustomSearchBox(),
-            SizedBox(
+            const CustomSearchBox(),
+            const SizedBox(
               height: 16,
             ),
             Text(
-              "Best seller",
+             S.of(context).best_seller,
               style: AppStyles.textStyle20,
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
-            ProductsGridView(),
-            SizedBox(
+            const ProductsGridView(),
+            const SizedBox(
               height: 16,
             ),
           ],

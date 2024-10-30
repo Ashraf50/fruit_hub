@@ -14,6 +14,7 @@ import 'package:fruit_hub/feature/registration/presentation/view/forget_password
 import 'package:fruit_hub/feature/registration/presentation/view/sign_up_view.dart';
 import 'package:fruit_hub/feature/registration/presentation/view/widget/check_account.dart';
 import 'package:fruit_hub/feature/registration/presentation/view_model/auth_bloc/auth_bloc.dart';
+import 'package:fruit_hub/generated/l10n.dart';
 import 'package:get/get.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart'
@@ -61,7 +62,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
             valueColor: AlwaysStoppedAnimation<Color>(AppColors.buttonColor),
           ),
           child: CustomScaffold(
-            appBar: const CustomAppBar(title: "Sign In"),
+            appBar: CustomAppBar(title: S.of(context).sign_in),
             body: Padding(
               padding: EdgeInsets.symmetric(horizontal: widget.horizontal),
               child: Form(
@@ -72,24 +73,24 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                     CustomTextfield(
                       validator: (value) {
                         return value != null && !EmailValidator.validate(value)
-                            ? "Enter a valid email"
+                            ? S.of(context).valid_email
                             : null;
                       },
                       autovalidateMode: AutovalidateMode.onUserInteraction,
-                      hintText: "your email",
+                      hintText: S.of(context).your_email,
                       obscureText: false,
                       controller: emailController,
                     ),
                     CustomTextfield(
                       validator: (value) {
                         if (value!.length < 6) {
-                          return "Your password is too short!";
+                          return S.of(context).short_password;
                         } else {
                           return null;
                         }
                       },
                       autovalidateMode: AutovalidateMode.onUserInteraction,
-                      hintText: "your password",
+                      hintText: S.of(context).your_Password,
                       obscureText: visibility,
                       controller: passwordController,
                       suffixIcon: IconButton(
@@ -120,9 +121,9 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                               duration: const Duration(milliseconds: 500),
                             );
                           },
-                          child: const Text(
-                            "forget Password?",
-                            style: TextStyle(
+                          child: Text(
+                            S.of(context).forget_password,
+                            style: const TextStyle(
                               fontSize: 18,
                               color: AppColors.buttonColor,
                             ),
@@ -131,7 +132,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                       ],
                     ),
                     CustomButton(
-                      title: "Sign in",
+                      title: S.of(context).sign_in,
                       textColor: Colors.white,
                       buttonColor: AppColors.buttonColor,
                       width: double.infinity,
@@ -148,8 +149,8 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                     ),
                     const SizedBox(height: 30),
                     CheckAccount(
-                      title: "don't have an account?",
-                      buttonTitle: "crete account",
+                      title: S.of(context).do_have_account,
+                      buttonTitle: S.of(context).create_account,
                       onPressed: () {
                         Get.to(
                           () => const SignUpView(),
@@ -158,17 +159,17 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                         );
                       },
                     ),
-                    const Row(
+                    Row(
                       children: [
-                        Expanded(child: Divider()),
+                        const Expanded(child: Divider()),
                         Text(
-                          "     OR     ",
-                          style: TextStyle(
+                          S.of(context).or,
+                          style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Expanded(child: Divider()),
+                        const Expanded(child: Divider()),
                       ],
                     ),
                     const GoogleButton(),

@@ -10,6 +10,7 @@ import 'package:fruit_hub/core/widget/custom_scaffold.dart';
 import 'package:fruit_hub/core/widget/custom_text_field.dart';
 import 'package:fruit_hub/core/widget/snack_bar.dart';
 import 'package:fruit_hub/feature/registration/presentation/view_model/auth_bloc/auth_bloc.dart';
+import 'package:fruit_hub/generated/l10n.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class PersonalInformationView extends StatefulWidget {
@@ -48,7 +49,7 @@ class _PersonalInformationViewState extends State<PersonalInformationView> {
             valueColor: AlwaysStoppedAnimation<Color>(AppColors.buttonColor),
           ),
           child: CustomScaffold(
-            appBar: const CustomAppBar(title: "Profile"),
+            appBar: CustomAppBar(title: S.of(context).profile),
             body: Padding(
               padding: EdgeInsets.symmetric(horizontal: widget.horizontal),
               child: Form(
@@ -58,8 +59,8 @@ class _PersonalInformationViewState extends State<PersonalInformationView> {
                     const SizedBox(
                       height: 20,
                     ),
-                    const Text(
-                      "Personal information",
+                    Text(
+                      S.of(context).personal_inform,
                       style: AppStyles.textStyle20,
                     ),
                     const SizedBox(
@@ -68,13 +69,13 @@ class _PersonalInformationViewState extends State<PersonalInformationView> {
                     CustomTextfield(
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "Enter your name";
+                          return S.of(context).Enter_name;
                         } else {
                           return null;
                         }
                       },
                       autovalidateMode: AutovalidateMode.onUserInteraction,
-                      hintText: "new name",
+                      hintText: S.of(context).new_name,
                       obscureText: false,
                       suffixIcon: const Icon(
                         Icons.edit,
@@ -85,11 +86,11 @@ class _PersonalInformationViewState extends State<PersonalInformationView> {
                     CustomTextfield(
                       validator: (value) {
                         return value != null && !EmailValidator.validate(value)
-                            ? "Enter a valid email"
+                            ? S.of(context).valid_email
                             : null;
                       },
                       autovalidateMode: AutovalidateMode.onUserInteraction,
-                      hintText: "new email",
+                      hintText: S.of(context).new_email,
                       obscureText: false,
                       suffixIcon: const Icon(
                         Icons.edit,
@@ -100,8 +101,8 @@ class _PersonalInformationViewState extends State<PersonalInformationView> {
                     const SizedBox(
                       height: 20,
                     ),
-                    const Text(
-                      "Change password",
+                    Text(
+                      S.of(context).change_pass,
                       style: AppStyles.textStyle20,
                     ),
                     const SizedBox(
@@ -110,13 +111,13 @@ class _PersonalInformationViewState extends State<PersonalInformationView> {
                     CustomTextfield(
                       validator: (value) {
                         if (value!.length < 6) {
-                          return "Your password is too short!";
+                          return S.of(context).short_password;
                         } else {
                           return null;
                         }
                       },
                       autovalidateMode: AutovalidateMode.onUserInteraction,
-                      hintText: "new Password",
+                      hintText: S.of(context).new_pass,
                       obscureText: false,
                       suffixIcon: const Icon(
                         Icons.edit,
@@ -128,7 +129,7 @@ class _PersonalInformationViewState extends State<PersonalInformationView> {
                       height: 15,
                     ),
                     CustomButton(
-                      title: "Save Changes",
+                      title: S.of(context).save_changes,
                       buttonColor: AppColors.buttonColor,
                       textColor: Colors.white,
                       width: double.infinity,
@@ -142,7 +143,7 @@ class _PersonalInformationViewState extends State<PersonalInformationView> {
                             ),
                           );
                         } else {
-                          showSnackBar(context, "check the email");
+                          showSnackBar(context, S.of(context).check_email);
                         }
                       },
                     )

@@ -9,9 +9,11 @@ import 'package:fruit_hub/feature/cart/presentation/view/cart_view.dart';
 import 'package:fruit_hub/feature/favorite/presentation/view/favorite_view.dart';
 import 'package:fruit_hub/feature/profile/presentation/view/widget/custom_list_tile.dart';
 import 'package:fruit_hub/feature/profile/presentation/view/widget/header_content.dart';
+import 'package:fruit_hub/feature/profile/presentation/view/widget/language_view.dart';
 import 'package:fruit_hub/feature/profile/presentation/view/widget/perssonal_information_view.dart';
 import 'package:fruit_hub/feature/profile/presentation/view/widget/who_are_you.dart';
 import 'package:fruit_hub/feature/registration/presentation/view/sign_in_view.dart';
+import 'package:fruit_hub/generated/l10n.dart';
 import 'package:get/get.dart';
 
 class ProfileViewBody extends StatelessWidget {
@@ -21,7 +23,7 @@ class ProfileViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      appBar: const CustomAppBar(title: "My Profile"),
+      appBar: CustomAppBar(title: S.of(context).My_Profile),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: horizontal),
         child: ListView(
@@ -30,15 +32,15 @@ class ProfileViewBody extends StatelessWidget {
             const SizedBox(
               height: 18,
             ),
-            const Text(
-              "General",
+            Text(
+              S.of(context).general,
               style: AppStyles.textStyle20,
             ),
             const SizedBox(
               height: 16,
             ),
             CustomListTile(
-              title: "Profile",
+              title: S.of(context).profile,
               image: "assets/img/profile.svg",
               onTap: () {
                 Get.to(
@@ -59,7 +61,7 @@ class ProfileViewBody extends StatelessWidget {
               },
             ),
             CustomListTile(
-              title: "Orders",
+              title: S.of(context).orders,
               image: "assets/img/order.svg",
               onTap: () {
                 Get.to(
@@ -70,12 +72,12 @@ class ProfileViewBody extends StatelessWidget {
               },
             ),
             CustomListTile(
-              title: "Payment",
+              title: S.of(context).payment,
               image: "assets/img/empty-wallet.svg",
               onTap: () {},
             ),
             CustomListTile(
-              title: "Favorite",
+              title: S.of(context).Favorite,
               image: "assets/img/favorite.svg",
               onTap: () {
                 Get.to(
@@ -86,32 +88,38 @@ class ProfileViewBody extends StatelessWidget {
               },
             ),
             CustomListTile(
-              title: "notifications",
+              title: S.of(context).notification,
               image: "assets/img/notification.svg",
               onTap: () {},
             ),
             CustomListTile(
-              title: "Language",
+              title: S.of(context).language,
               image: "assets/img/global.svg",
-              onTap: () {},
+              onTap: () {
+                Get.to(
+                  () => const LanguageView(),
+                  transition: Transition.rightToLeft,
+                  duration: const Duration(milliseconds: 500),
+                );
+              },
             ),
             CustomListTile(
-              title: "Dark-Mode",
+              title: S.of(context).dark_mode,
               image: "assets/img/magicpen.svg",
               onTap: () {},
             ),
             const SizedBox(
               height: 22,
             ),
-            const Text(
-              "Help",
+            Text(
+              S.of(context).help,
               style: AppStyles.textStyle20,
             ),
             const SizedBox(
               height: 16,
             ),
             CustomListTile(
-              title: "Who we are",
+              title: S.of(context).who_we_are,
               image: "assets/img/info-circle.svg",
               onTap: () {
                 Get.to(
@@ -126,7 +134,7 @@ class ProfileViewBody extends StatelessWidget {
             ),
             CustomButton(
               width: double.infinity,
-              title: "Logout",
+              title: S.of(context).logout,
               onTap: () {
                 customDialog(context);
               },
@@ -154,8 +162,8 @@ class ProfileViewBody extends StatelessWidget {
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Text(
-                "Do you want to logout?",
+              Text(
+                S.of(context).want_to_logout,
                 textAlign: TextAlign.center,
                 style: AppStyles.textStyle20,
               ),
@@ -164,7 +172,7 @@ class ProfileViewBody extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CustomButton(
-                    title: "Back",
+                    title: S.of(context).back,
                     width: 100,
                     onTap: () {
                       Navigator.pop(context);
@@ -173,7 +181,7 @@ class ProfileViewBody extends StatelessWidget {
                     textColor: AppColors.buttonColor,
                   ),
                   CustomButton(
-                    title: "Logout",
+                    title: S.of(context).logout,
                     onTap: () {
                       FirebaseAuth.instance.signOut();
                       Navigator.pushAndRemoveUntil(
@@ -185,7 +193,7 @@ class ProfileViewBody extends StatelessWidget {
                     },
                     buttonColor: AppColors.buttonColor,
                     textColor: Colors.white,
-                    width: 100,
+                    width: 125,
                   ),
                 ],
               )

@@ -7,6 +7,7 @@ import 'package:fruit_hub/feature/home/presentation/view/widget/details_view_bod
 import 'package:fruit_hub/feature/search/presentation/view/widget/search_item.dart';
 import 'package:fruit_hub/feature/search/presentation/view/widget/search_text_fielld.dart';
 import 'package:fruit_hub/feature/search/presentation/view_model/cubit/search_cubit.dart';
+import 'package:fruit_hub/generated/l10n.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart'
     as get_transition;
@@ -39,7 +40,7 @@ class _SearchViewState extends State<SearchView> {
       child: BlocBuilder<SearchCubit, List<FruitModel>>(
         builder: (context, state) {
           return CustomScaffold(
-            appBar: const CustomAppBar(title: "Search"),
+            appBar:  CustomAppBar(title:S.of(context).search),
             body: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: ListView(
@@ -48,7 +49,7 @@ class _SearchViewState extends State<SearchView> {
                     height: 16,
                   ),
                   SearchTextField(
-                    hintText: "search for...",
+                    hintText: S.of(context).search_for,
                     controller: searchController,
                     onChanged: (value) {
                       return searchForProduct(value);

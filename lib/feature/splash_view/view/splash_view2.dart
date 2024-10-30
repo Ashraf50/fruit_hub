@@ -4,6 +4,7 @@ import 'package:fruit_hub/core/constant/app_colors.dart';
 import 'package:fruit_hub/core/widget/custom_button.dart';
 import 'package:fruit_hub/core/widget/custom_scaffold.dart';
 import 'package:fruit_hub/feature/registration/presentation/view/sign_in_view.dart';
+import 'package:fruit_hub/generated/l10n.dart';
 import 'package:get/get.dart';
 
 class SplashView2 extends StatelessWidget {
@@ -19,18 +20,18 @@ class SplashView2 extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             SvgPicture.asset('assets/img/fruit_basket.svg'),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Welcome to ",
-                  style: TextStyle(
+                  S.of(context).welcome,
+                  style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.center,
                 ),
-                Text(
+                const Text(
                   "FruitHUB",
                   style: TextStyle(
                     fontSize: 24,
@@ -42,16 +43,16 @@ class SplashView2 extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 16),
-            const Text(
-              "Discover a unique shopping experience with FruitHUB. Explore our wide range of premium fresh fruits and get the best deals and high quality.",
-              style: TextStyle(
+            Text(
+              S.of(context).description,
+              style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w400,
               ),
               textAlign: TextAlign.center,
             ),
             CustomButton(
-              title: "start now",
+              title: S.of(context).start,
               textColor: Colors.white,
               buttonColor: AppColors.buttonColor,
               width: double.infinity,

@@ -7,6 +7,7 @@ import 'package:fruit_hub/feature/favorite/presentation/view/widget/favorite_pro
 import 'package:fruit_hub/feature/favorite/presentation/view_model/cubit/favorite_cubit.dart';
 import 'package:fruit_hub/feature/home/data/fruit_model.dart';
 import 'package:fruit_hub/feature/home/presentation/view/widget/details_view_body.dart';
+import 'package:fruit_hub/generated/l10n.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart'
     as get_transition;
@@ -28,8 +29,7 @@ class _FavProductGridViewState extends State<FavProductGridView> {
           if (state is FavoritesSuccess) {
             final favorites = state.favorites;
             if (favorites.isEmpty) {
-              return const NoFavoriteProduct(
-                  message: 'No favorite products found.');
+              return NoFavoriteProduct(message: S.of(context).no_favorite);
             }
             return GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

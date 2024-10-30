@@ -6,6 +6,7 @@ import 'package:fruit_hub/core/widget/custom_button.dart';
 import 'package:fruit_hub/feature/cart/presentation/view/widget/cart_list_view.dart';
 import 'package:fruit_hub/feature/cart/presentation/view_model/cubit/cart_cubit.dart';
 import 'package:fruit_hub/feature/cart/presentation/view_model/cubit/cart_state.dart';
+import 'package:fruit_hub/generated/l10n.dart';
 
 class CartViewBody extends StatelessWidget {
   const CartViewBody({super.key});
@@ -17,7 +18,7 @@ class CartViewBody extends StatelessWidget {
       builder: (context, state) {
         return SafeArea(
           child: Scaffold(
-            appBar: const CustomAppBar(title: "Cart"),
+            appBar: CustomAppBar(title: S.of(context).cart),
             body: ListView(
               children: [
                 const SizedBox(
@@ -28,7 +29,7 @@ class CartViewBody extends StatelessWidget {
                   color: const Color(0xffEBF9F1),
                   child: Center(
                     child: Text(
-                      "You have ${cubit.selectedProduct.length} products in your shopping cart.",
+                      "${S.of(context).you_have}${cubit.selectedProduct.length} ${S.of(context).products_in_cart}",
                       style: const TextStyle(
                         color: AppColors.buttonColor,
                         fontSize: 18,
@@ -51,7 +52,8 @@ class CartViewBody extends StatelessWidget {
             bottomNavigationBar: Padding(
               padding: const EdgeInsets.all(16.0),
               child: CustomButton(
-                title: "Pay ${cubit.price} pounds",
+                title:
+                    "${S.of(context).pay} ${cubit.price} ${S.of(context).pounds}",
                 onTap: () {},
                 buttonColor: AppColors.buttonColor,
                 textColor: Colors.white,

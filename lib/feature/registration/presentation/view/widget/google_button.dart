@@ -4,6 +4,7 @@ import 'package:fruit_hub/core/widget/botom_bar.dart';
 import 'package:fruit_hub/core/widget/snack_bar.dart';
 import 'package:fruit_hub/feature/registration/presentation/view/widget/button_design.dart';
 import 'package:fruit_hub/feature/registration/presentation/view_model/google_facebook_bloc/google_facebook_bloc.dart';
+import 'package:fruit_hub/generated/l10n.dart';
 import 'package:get/get.dart';
 
 class GoogleButton extends StatelessWidget {
@@ -28,7 +29,7 @@ class GoogleButton extends StatelessWidget {
       builder: (context, state) {
         return ButtonDesign(
           image: "assets/img/google.svg",
-          title: "Sign in with google",
+          title: S.of(context).sign_with_google,
           onTap: () {
             BlocProvider.of<GoogleFacebookBloc>(context).add(GoogleSignEvent());
           },
