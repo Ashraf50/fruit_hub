@@ -5,16 +5,10 @@ import 'package:fruit_hub/core/constant/text_style.dart';
 import 'package:fruit_hub/core/widget/custom_app_bar.dart';
 import 'package:fruit_hub/core/widget/custom_button.dart';
 import 'package:fruit_hub/core/widget/custom_scaffold.dart';
-import 'package:fruit_hub/feature/cart/presentation/view/cart_view.dart';
-import 'package:fruit_hub/feature/favorite/presentation/view/favorite_view.dart';
 import 'package:fruit_hub/feature/profile/presentation/view/widget/custom_list_tile.dart';
 import 'package:fruit_hub/feature/profile/presentation/view/widget/header_content.dart';
-import 'package:fruit_hub/feature/profile/presentation/view/widget/language_view.dart';
-import 'package:fruit_hub/feature/profile/presentation/view/widget/perssonal_information_view.dart';
-import 'package:fruit_hub/feature/profile/presentation/view/widget/who_are_you.dart';
-import 'package:fruit_hub/feature/registration/presentation/view/sign_in_view.dart';
 import 'package:fruit_hub/generated/l10n.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 class ProfileViewBody extends StatelessWidget {
   final double horizontal;
@@ -43,32 +37,14 @@ class ProfileViewBody extends StatelessWidget {
               title: S.of(context).profile,
               image: "assets/img/profile.svg",
               onTap: () {
-                Get.to(
-                  () => LayoutBuilder(builder: (context, constraints) {
-                    if (constraints.maxWidth < 600) {
-                      return const PersonalInformationView(
-                        horizontal: 20,
-                      );
-                    } else {
-                      return PersonalInformationView(
-                        horizontal: MediaQuery.sizeOf(context).width * .2,
-                      );
-                    }
-                  }),
-                  transition: Transition.rightToLeft,
-                  duration: const Duration(milliseconds: 500),
-                );
+                context.push('/personalInfo');
               },
             ),
             CustomListTile(
               title: S.of(context).orders,
               image: "assets/img/order.svg",
               onTap: () {
-                Get.to(
-                  () => const CartView(),
-                  transition: Transition.rightToLeft,
-                  duration: const Duration(milliseconds: 500),
-                );
+                context.push('/cart_view');
               },
             ),
             CustomListTile(
@@ -80,11 +56,7 @@ class ProfileViewBody extends StatelessWidget {
               title: S.of(context).Favorite,
               image: "assets/img/favorite.svg",
               onTap: () {
-                Get.to(
-                  () => const FavoriteView(),
-                  transition: Transition.rightToLeft,
-                  duration: const Duration(milliseconds: 500),
-                );
+                context.push('/fav_view');
               },
             ),
             CustomListTile(
@@ -96,17 +68,8 @@ class ProfileViewBody extends StatelessWidget {
               title: S.of(context).language,
               image: "assets/img/global.svg",
               onTap: () {
-                Get.to(
-                  () => const LanguageView(),
-                  transition: Transition.rightToLeft,
-                  duration: const Duration(milliseconds: 500),
-                );
+                context.push('/language_view');
               },
-            ),
-            CustomListTile(
-              title: S.of(context).dark_mode,
-              image: "assets/img/magicpen.svg",
-              onTap: () {},
             ),
             const SizedBox(
               height: 22,
@@ -122,11 +85,7 @@ class ProfileViewBody extends StatelessWidget {
               title: S.of(context).who_we_are,
               image: "assets/img/info-circle.svg",
               onTap: () {
-                Get.to(
-                  () => const HowAreYouView(),
-                  transition: Transition.rightToLeft,
-                  duration: const Duration(milliseconds: 500),
-                );
+                context.push('/howAreYouView');
               },
             ),
             const SizedBox(
@@ -175,7 +134,7 @@ class ProfileViewBody extends StatelessWidget {
                     title: S.of(context).back,
                     width: 100,
                     onTap: () {
-                      Navigator.pop(context);
+                      context.pop(context);
                     },
                     buttonColor: const Color(0xffEBF9F1),
                     textColor: AppColors.buttonColor,
@@ -184,12 +143,7 @@ class ProfileViewBody extends StatelessWidget {
                     title: S.of(context).logout,
                     onTap: () {
                       FirebaseAuth.instance.signOut();
-                      Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const SignInView(),
-                          ),
-                          (route) => false);
+                      context.go('/signInView');
                     },
                     buttonColor: AppColors.buttonColor,
                     textColor: Colors.white,

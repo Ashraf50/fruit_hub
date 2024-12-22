@@ -6,11 +6,8 @@ import 'package:fruit_hub/core/constant/text_style.dart';
 import 'package:fruit_hub/feature/favorite/presentation/view/widget/favorite_product_item.dart';
 import 'package:fruit_hub/feature/favorite/presentation/view_model/cubit/favorite_cubit.dart';
 import 'package:fruit_hub/feature/home/data/fruit_model.dart';
-import 'package:fruit_hub/feature/home/presentation/view/widget/details_view_body.dart';
 import 'package:fruit_hub/generated/l10n.dart';
-import 'package:get/get.dart';
-import 'package:get/get_navigation/src/routes/transitions_type.dart'
-    as get_transition;
+import 'package:go_router/go_router.dart';
 
 class FavProductGridView extends StatefulWidget {
   const FavProductGridView({super.key});
@@ -52,11 +49,7 @@ class _FavProductGridViewState extends State<FavProductGridView> {
                   highlightColor: Colors.transparent,
                   splashColor: Colors.transparent,
                   onTap: () {
-                    Get.to(
-                      () => DetailsViewBody(fruits: fruitModel),
-                      transition: get_transition.Transition.zoom,
-                      duration: const Duration(milliseconds: 500),
-                    );
+                    context.push('/details_view', extra: fruitModel);
                   },
                   child: FavProductItem(
                     productName: product["product_name"],

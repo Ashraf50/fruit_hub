@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruit_hub/core/widget/botom_bar.dart';
 import 'package:fruit_hub/core/widget/snack_bar.dart';
 import 'package:fruit_hub/feature/registration/presentation/view/widget/button_design.dart';
 import 'package:fruit_hub/feature/registration/presentation/view_model/google_facebook_bloc/google_facebook_bloc.dart';
 import 'package:fruit_hub/generated/l10n.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 class FacebookButton extends StatelessWidget {
   const FacebookButton({super.key});
@@ -18,7 +17,7 @@ class FacebookButton extends StatelessWidget {
         if (state is FacebookSignLoading) {
           isLoading = true;
         } else if (state is FacebookSignSuccess) {
-          Get.to(() => const BottomBar());
+          context.go('/bottomBar');
           showSnackBar(context, "Welcome");
           isLoading = false;
         } else if (state is FacebookSignFailure) {

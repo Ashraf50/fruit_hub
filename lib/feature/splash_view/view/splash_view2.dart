@@ -3,9 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:fruit_hub/core/constant/app_colors.dart';
 import 'package:fruit_hub/core/widget/custom_button.dart';
 import 'package:fruit_hub/core/widget/custom_scaffold.dart';
-import 'package:fruit_hub/feature/registration/presentation/view/sign_in_view.dart';
 import 'package:fruit_hub/generated/l10n.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashView2 extends StatelessWidget {
   final double horizontal;
@@ -57,11 +56,7 @@ class SplashView2 extends StatelessWidget {
               buttonColor: AppColors.buttonColor,
               width: double.infinity,
               onTap: () {
-                Get.to(
-                  () => const SignInView(),
-                  transition: Transition.rightToLeftWithFade,
-                  duration: const Duration(milliseconds: 500),
-                );
+                context.push('/signInView');
               },
             )
           ],

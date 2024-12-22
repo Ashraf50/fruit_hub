@@ -7,14 +7,11 @@ import 'package:fruit_hub/core/widget/custom_button.dart';
 import 'package:fruit_hub/core/widget/custom_scaffold.dart';
 import 'package:fruit_hub/core/widget/custom_text_field.dart';
 import 'package:fruit_hub/core/widget/snack_bar.dart';
-import 'package:fruit_hub/feature/registration/presentation/view/sign_in_view.dart';
 import 'package:fruit_hub/feature/registration/presentation/view/widget/check_account.dart';
 import 'package:fruit_hub/feature/registration/presentation/view_model/auth_bloc/auth_bloc.dart';
 import 'package:fruit_hub/generated/l10n.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:get/get_navigation/src/routes/transitions_type.dart'
-    as get_transition;
 
 class SignUpViewBody extends StatefulWidget {
   final double horizontal;
@@ -38,7 +35,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
         if (state is RegisterLoading) {
           isLoading = true;
         } else if (state is RegisterSuccess) {
-          Get.to(() => const SignInView());
+          context.push("/signInView");
           showSnackBar(context, "Register success");
           isLoading = false;
         } else if (state is RegisterFailure) {
@@ -131,11 +128,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                       title: S.of(context).already_have_account,
                       buttonTitle: S.of(context).sign_in,
                       onPressed: () {
-                        Get.to(
-                          () => const SignInView(),
-                          transition: get_transition.Transition.leftToRight,
-                          duration: const Duration(milliseconds: 500),
-                        );
+                        context.push("/signInView");
                       },
                     ),
                   ],

@@ -9,11 +9,8 @@ import 'package:fruit_hub/core/widget/snack_bar.dart';
 import 'package:fruit_hub/feature/registration/presentation/view/widget/check_account.dart';
 import 'package:fruit_hub/feature/registration/presentation/view_model/auth_bloc/auth_bloc.dart';
 import 'package:fruit_hub/generated/l10n.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import '../sign_in_view.dart';
-import 'package:get/get_navigation/src/routes/transitions_type.dart'
-    as get_transition;
 
 class ForgetPasswordViewBody extends StatefulWidget {
   final double horizontal;
@@ -33,7 +30,7 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
         if (state is ResetLoading) {
           isLoading = true;
         } else if (state is ResetSuccess) {
-          Get.to(() => const SignInView());
+          context.go("/signInView");
           showSnackBar(context, "email sent");
           isLoading = false;
         } else if (state is ResetFailure) {
@@ -87,11 +84,7 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
                     title: S.of(context).remember_password,
                     buttonTitle: S.of(context).sign_in,
                     onPressed: () {
-                      Get.to(
-                        () => const SignInView(),
-                        transition: get_transition.Transition.leftToRight,
-                        duration: const Duration(milliseconds: 500),
-                      );
+                      context.go("/signInView");
                     },
                   ),
                 ],

@@ -2,12 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/widget/snack_bar.dart';
 import 'package:fruit_hub/feature/favorite/presentation/view_model/cubit/favorite_cubit.dart';
-import 'package:fruit_hub/feature/home/presentation/view/widget/details_view_body.dart';
 import 'package:fruit_hub/feature/home/presentation/view/widget/product_item.dart';
 import 'package:fruit_hub/feature/home/presentation/view_model/cubit/fetch_products_cubit.dart';
-import 'package:get/get.dart';
-import 'package:get/get_navigation/src/routes/transitions_type.dart'
-    as get_transition;
+import 'package:go_router/go_router.dart';
 
 class ProductsGridView extends StatelessWidget {
   const ProductsGridView({super.key});
@@ -33,11 +30,7 @@ class ProductsGridView extends StatelessWidget {
                     highlightColor: Colors.transparent,
                     splashColor: Colors.transparent,
                     onTap: () {
-                      Get.to(
-                        () => DetailsViewBody(fruits: state.fruits[index]),
-                        transition: get_transition.Transition.downToUp,
-                        duration: const Duration(milliseconds: 500),
-                      );
+                      context.push('/details_view', extra: state.fruits[index]);
                     },
                     borderRadius: BorderRadius.circular(12),
                     child: ProductItem(fruits: state.fruits[index]));

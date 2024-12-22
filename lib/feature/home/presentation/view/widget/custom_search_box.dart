@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fruit_hub/core/constant/text_style.dart';
-import 'package:fruit_hub/feature/home/presentation/view_model/cubit/fetch_products_cubit.dart';
-import 'package:fruit_hub/feature/search/presentation/view/search_view.dart';
 import 'package:fruit_hub/generated/l10n.dart';
-import 'package:get/get.dart';
-import 'package:get/get_navigation/src/routes/transitions_type.dart'
-    as get_transition;
+import 'package:go_router/go_router.dart';
 
 class CustomSearchBox extends StatelessWidget {
   const CustomSearchBox({super.key});
@@ -16,21 +11,8 @@ class CustomSearchBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Get.to(
-          () => BlocBuilder<FetchProductsCubit, FetchProductsState>(
-            builder: (context, state) {
-              if (state is FetchProductsSuccess) {
-                return SearchView(
-                  product: state.fruits,
-                );
-              }
-              return const SearchView(
-                product: [],
-              );
-            },
-          ),
-          transition: get_transition.Transition.rightToLeft,
-          duration: const Duration(milliseconds: 500),
+        context.push(
+          '/search_view',
         );
       },
       borderRadius: BorderRadius.circular(12),

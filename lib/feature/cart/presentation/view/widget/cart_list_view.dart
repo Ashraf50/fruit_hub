@@ -3,12 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/feature/cart/presentation/view/widget/cart_item.dart';
 import 'package:fruit_hub/feature/cart/presentation/view_model/cubit/cart_cubit.dart';
 import 'package:fruit_hub/feature/favorite/presentation/view/widget/fav_product_grid_View.dart';
-import 'package:fruit_hub/feature/home/presentation/view/widget/details_view_body.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../../generated/l10n.dart';
 import '../../view_model/cubit/cart_state.dart';
-import 'package:get/get_navigation/src/routes/transitions_type.dart'
-    as get_transition;
 
 class CartListView extends StatelessWidget {
   const CartListView({super.key});
@@ -19,7 +16,7 @@ class CartListView extends StatelessWidget {
       builder: (context, state) {
         var cubit = CartCubit.get(context);
         if (cubit.selectedProduct.isEmpty) {
-          return  NoFavoriteProduct(message: S.of(context).No_products_in_cart);
+          return NoFavoriteProduct(message: S.of(context).No_products_in_cart);
         } else {
           return ListView.builder(
             itemCount: cubit.selectedProduct.length,
@@ -31,11 +28,8 @@ class CartListView extends StatelessWidget {
                 highlightColor: Colors.transparent,
                 splashColor: Colors.transparent,
                 onTap: () {
-                  Get.to(
-                    () => DetailsViewBody(fruits: cubit.selectedProduct[index]),
-                    transition: get_transition.Transition.downToUp,
-                    duration: const Duration(milliseconds: 500),
-                  );
+                  context.push('/details_view',
+                      extra: cubit.selectedProduct[index]);
                 },
                 child: CartItem(
                   fruit: cubit.selectedProduct[index],

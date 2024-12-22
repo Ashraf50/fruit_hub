@@ -4,10 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruit_hub/core/constant/text_style.dart';
 import 'package:fruit_hub/feature/profile/data/cubit/profile_image_cubit.dart';
-import 'package:fruit_hub/feature/profile/presentation/view/profile_view.dart';
 import 'package:fruit_hub/feature/profile/presentation/view/widget/shimmer_loading.dart';
 import 'package:fruit_hub/generated/l10n.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key});
@@ -37,7 +36,7 @@ class HomeAppBar extends StatelessWidget {
                       data["imgLink"] == null
                           ? InkWell(
                               borderRadius: BorderRadius.circular(24),
-                              onTap: () => Get.to(() => const ProfileView()),
+                              onTap: () => context.push('/profileView'),
                               child: CircleAvatar(
                                   backgroundColor: Colors.grey[300],
                                   radius: 25,
@@ -46,7 +45,7 @@ class HomeAppBar extends StatelessWidget {
                             )
                           : InkWell(
                               borderRadius: BorderRadius.circular(24),
-                              onTap: () => Get.to(() => const ProfileView()),
+                              onTap: () => context.push('/profileView'),
                               child: CircleAvatar(
                                   radius: 25,
                                   backgroundImage:

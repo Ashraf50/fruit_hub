@@ -2,13 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/constant/text_style.dart';
-import 'package:fruit_hub/core/widget/photo_viewer.dart';
 import 'package:fruit_hub/feature/profile/data/cubit/profile_image_cubit.dart';
 import 'package:fruit_hub/feature/profile/presentation/view/widget/camera_button.dart';
 import 'package:fruit_hub/feature/profile/presentation/view/widget/shimmer_loading.dart';
-import 'package:get/get.dart';
-import 'package:get/get_navigation/src/routes/transitions_type.dart'
-    as get_transition;
+import 'package:go_router/go_router.dart';
 
 class HeaderContent extends StatelessWidget {
   const HeaderContent({super.key});
@@ -48,15 +45,8 @@ class HeaderContent extends StatelessWidget {
                                 : InkWell(
                                     borderRadius: BorderRadius.circular(50),
                                     onTap: () {
-                                      Get.to(
-                                        () => PhotoViewer(
-                                          image: data["imgLink"],
-                                        ),
-                                        transition: get_transition
-                                            .Transition.circularReveal,
-                                        duration:
-                                            const Duration(milliseconds: 500),
-                                      );
+                                      context.push('/photoView',
+                                          extra: data["imgLink"]);
                                     },
                                     child: CircleAvatar(
                                       radius: 50,

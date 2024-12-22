@@ -3,14 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/widget/custom_app_bar.dart';
 import 'package:fruit_hub/core/widget/custom_scaffold.dart';
 import 'package:fruit_hub/feature/home/data/fruit_model.dart';
-import 'package:fruit_hub/feature/home/presentation/view/widget/details_view_body.dart';
 import 'package:fruit_hub/feature/search/presentation/view/widget/search_item.dart';
 import 'package:fruit_hub/feature/search/presentation/view/widget/search_text_fielld.dart';
 import 'package:fruit_hub/feature/search/presentation/view_model/cubit/search_cubit.dart';
 import 'package:fruit_hub/generated/l10n.dart';
-import 'package:get/get.dart';
-import 'package:get/get_navigation/src/routes/transitions_type.dart'
-    as get_transition;
+import 'package:go_router/go_router.dart';
 
 class SearchView extends StatefulWidget {
   final List<FruitModel> product;
@@ -40,7 +37,7 @@ class _SearchViewState extends State<SearchView> {
       child: BlocBuilder<SearchCubit, List<FruitModel>>(
         builder: (context, state) {
           return CustomScaffold(
-            appBar:  CustomAppBar(title:S.of(context).search),
+            appBar: CustomAppBar(title: S.of(context).search),
             body: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: ListView(
@@ -68,12 +65,8 @@ class _SearchViewState extends State<SearchView> {
                         child: InkWell(
                           borderRadius: BorderRadius.circular(10),
                           onTap: () {
-                            Get.to(
-                              () => DetailsViewBody(
-                                  fruits: filteredProducts[index]),
-                              transition: get_transition.Transition.zoom,
-                              duration: const Duration(milliseconds: 500),
-                            );
+                            context.push('/details_view',
+                                extra: filteredProducts[index]);
                           },
                           child: SearchItem(
                             product: filteredProducts[index],

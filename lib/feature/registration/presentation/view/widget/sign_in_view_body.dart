@@ -2,7 +2,6 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/constant/app_colors.dart';
-import 'package:fruit_hub/core/widget/botom_bar.dart';
 import 'package:fruit_hub/core/widget/custom_app_bar.dart';
 import 'package:fruit_hub/core/widget/custom_button.dart';
 import 'package:fruit_hub/feature/registration/presentation/view/widget/google_button.dart';
@@ -10,15 +9,11 @@ import 'package:fruit_hub/core/widget/custom_scaffold.dart';
 import 'package:fruit_hub/core/widget/custom_text_field.dart';
 import 'package:fruit_hub/feature/registration/presentation/view/widget/facebook_button.dart';
 import 'package:fruit_hub/core/widget/snack_bar.dart';
-import 'package:fruit_hub/feature/registration/presentation/view/forget_password_view.dart';
-import 'package:fruit_hub/feature/registration/presentation/view/sign_up_view.dart';
 import 'package:fruit_hub/feature/registration/presentation/view/widget/check_account.dart';
 import 'package:fruit_hub/feature/registration/presentation/view_model/auth_bloc/auth_bloc.dart';
 import 'package:fruit_hub/generated/l10n.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:get/get_navigation/src/routes/transitions_type.dart'
-    as get_transition;
 
 class SignInViewBody extends StatefulWidget {
   final double horizontal;
@@ -41,13 +36,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
         if (state is LoginLoading) {
           isLoading = true;
         } else if (state is LoginSuccess) {
-          Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const BottomBar(),
-            ),
-            (route) => false,
-          );
+          context.go('/bottomBar');
           showSnackBar(context, "Welcome");
           isLoading = false;
         } else if (state is LoginFailure) {
@@ -115,11 +104,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                       children: [
                         TextButton(
                           onPressed: () {
-                            Get.to(
-                              () => const ForgetPasswordView(),
-                              transition: get_transition.Transition.rightToLeft,
-                              duration: const Duration(milliseconds: 500),
-                            );
+                            context.push('/forgetPassword');
                           },
                           child: Text(
                             S.of(context).forget_password,
@@ -152,11 +137,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                       title: S.of(context).do_have_account,
                       buttonTitle: S.of(context).create_account,
                       onPressed: () {
-                        Get.to(
-                          () => const SignUpView(),
-                          transition: get_transition.Transition.rightToLeft,
-                          duration: const Duration(milliseconds: 500),
-                        );
+                        context.push('/signUnView');
                       },
                     ),
                     Row(
